@@ -37,25 +37,25 @@ function getNutrition(ingredient) {
         $("#servingSize").text("Serving Size: undefined");
       }
       for (i = 0; i < nutrients.length; i++) {
-        if (
+        /* if (
           nutrients[i].nutrientId === 1003 ||
           nutrients[i].nutrientId === 1005 ||
           nutrients[i].nutrientId === 1004 ||
           nutrients[i].nutrientId === 1008
-        ) {
-          $("<li></li>")
-            .text(
-              `${nutrients[i].nutrientName}: ${
-                nutrients[i].value + nutrients[i].unitName.toLowerCase()
-              }`
-            )
-            .appendTo("#nutrients");
-          nutrientsObj[nutrients[i].nutrientName] =
-            nutrients[i].value + nutrients[i].unitName.toLowerCase();
-          nutrientsObj2[nutrients[i].nutrientName] =
-            nutrients[i].percentDailyValue || "0";
-          nutrientsObj2[nutrients[i].nutrientName] += "%";
-        }
+        ) { */
+        $("<li></li>")
+          .text(
+            `${nutrients[i].nutrientName}: ${
+              nutrients[i].value + nutrients[i].unitName.toLowerCase()
+            }`
+          )
+          .appendTo("#nutrients");
+        nutrientsObj[nutrients[i].nutrientName] =
+          nutrients[i].value + nutrients[i].unitName.toLowerCase();
+        nutrientsObj2[nutrients[i].nutrientName] =
+          nutrients[i].percentDailyValue || "0";
+        nutrientsObj2[nutrients[i].nutrientName] += "%";
+        /* } */
       }
       console.log("Nutrients:", nutrientsObj);
       console.log("Nutrients %:", nutrientsObj2);
@@ -73,7 +73,7 @@ $(document).delegate(".ingredient", "click", (event) => {
   getNutrition(ingredient);
 });
 
-function getInformation(searchQuery) {
+/* function getInformation(searchQuery) {
   fetch(
     `https://api.nal.usda.gov/fdc/v1/foods/search?nutrients=203&nutrients=204&nutrients=205&api_key=${keys.fdcKey2}&query=${searchQuery}`
   )
@@ -148,4 +148,4 @@ $("#nutritionFax").on("click", ".foodDescription", function () {
 $("#nutrientSearchBtn").click(function () {
   $("#nutritionFax").empty();
   getInformation($(".nutrientSearch").val());
-});
+}); */
